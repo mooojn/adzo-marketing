@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 
-type ServiceType = 'meta' | 'google';
-
 type Plan = {
     name: string;
     description: string;
@@ -15,125 +13,67 @@ type Plan = {
 };
 
 const Pricing = () => {
-    const [activeService, setActiveService] = useState<ServiceType>('meta');
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const baseCardBorder = "rgba(15, 23, 42, 0.1)";
     const baseCardShadow = "0 14px 34px -20px rgba(15, 23, 42, 0.32), 0 1px 0 rgba(255,255,255,0.9) inset";
     const whatsappNumber = "923706037115";
 
-    const openWhatsApp = (serviceName: string, planName: string, planPrice: string) => {
-        const message = `Hi Adzzly, I'm interested in your ${serviceName} ${planName} package (${planPrice} / month). Please share more details.`;
+    const openWhatsApp = (planName: string, planPrice: string) => {
+        const message = `Hi Adzzly, I'm interested in your ${planName} package (${planPrice} / month). Please share more details.`;
         const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank", "noopener,noreferrer");
     };
 
-    const pricingByService: Record<ServiceType, { label: string; plans: Plan[] }> = {
-        meta: {
-            label: 'Meta Ads (Facebook & Instagram)',
-            plans: [
-                {
-                    name: 'Basic Package',
-                    description: 'Ideal for startups and small businesses launching online campaigns.',
-                    price: 'PKR 35,000',
-                    features: [
-                        'Ad account setup and business manager configuration.',
-                        'Audience and competitor research for focused targeting.',
-                        'Creation and management of 2 campaigns (traffic or engagement).',
-                        'Up to 4 ad creatives (images or short videos).',
-                        'Basic ad copywriting with CTA suggestions.',
-                        'Monthly performance report with key insights.'
-                    ],
-                    accent: 'var(--accent-sage)',
-                    bgAccent: 'rgba(16, 185, 129, 0.12)'
-                },
-                {
-                    name: 'Standard Package',
-                    description: 'Built for growing businesses aiming for stronger conversions and scale.',
-                    price: 'PKR 45,000',
-                    features: [
-                        'Everything in Basic Package.',
-                        'Management of 4-6 campaigns (traffic, engagement, conversion).',
-                        'Pixel setup and event tracking for optimization.',
-                        'Retargeting campaigns to re-engage visitors.',
-                        'A/B testing for creatives and ad copy.',
-                        'Up to 8 ad creatives each month.',
-                        'Fortnightly optimization reports and budget guidance.'
-                    ],
-                    accent: 'var(--accent-warm)',
-                    bgAccent: 'rgba(119, 185, 62, 0.12)',
-                    popular: true
-                },
-                {
-                    name: 'Premium Package',
-                    description: 'For brands that want full-funnel performance and aggressive growth.',
-                    price: 'PKR 80,000',
-                    features: [
-                        'Everything in Standard Package.',
-                        'Complete funnel strategy: awareness to conversion.',
-                        'Dynamic product ads and catalog setup (if applicable).',
-                        'Custom audience segmentation and lookalike creation.',
-                        'Advanced copywriting and creative direction.',
-                        'Weekly reporting with continuous optimization.',
-                        'Dedicated marketing consultant for strategy support.'
-                    ],
-                    accent: 'var(--accent-coral)',
-                    bgAccent: 'rgba(244, 63, 94, 0.12)'
-                }
-            ]
+    const plans: Plan[] = [
+        {
+            name: 'Basic Package',
+            description: 'Ideal for startups and small businesses launching online campaigns.',
+            price: '$150',
+            features: [
+                'Ad account setup and business manager configuration.',
+                'Audience and competitor research for focused targeting.',
+                'Creation and management of 2 campaigns (traffic or engagement).',
+                'Up to 4 ad creatives (images or short videos).',
+                'Basic ad copywriting with CTA suggestions.',
+                'Monthly performance report with key insights.'
+            ],
+            accent: 'var(--accent-sage)',
+            bgAccent: 'rgba(16, 185, 129, 0.12)'
         },
-        google: {
-            label: 'Google Ads Services',
-            plans: [
-                {
-                    name: 'Basic Package',
-                    description: 'Great for businesses that need initial visibility and qualified leads.',
-                    price: 'PKR 35,000',
-                    features: [
-                        'Google Ads account and campaign setup.',
-                        'Keyword research and ad group structuring.',
-                        'Creation and management of 2 search campaigns.',
-                        'Ad extension setup: sitelinks, call, and location.',
-                        'Monthly reporting with keyword and performance insights.'
-                    ],
-                    accent: 'var(--accent-teal)',
-                    bgAccent: 'rgba(13, 148, 136, 0.12)'
-                },
-                {
-                    name: 'Standard Package',
-                    description: 'For teams ready to expand campaign types and improve conversion quality.',
-                    price: 'PKR 45,000',
-                    features: [
-                        'Everything in Basic Package.',
-                        '4-6 campaigns across Search and Display networks.',
-                        'Conversion tracking via GTM or Analytics.',
-                        'Ongoing CPC and CTR optimization.',
-                        'Negative keyword refinement to cut wasted spend.',
-                        'Fortnightly analysis, ad copy optimization, and budget guidance.'
-                    ],
-                    accent: 'var(--accent-warm)',
-                    bgAccent: 'rgba(119, 185, 62, 0.12)',
-                    popular: true
-                },
-                {
-                    name: 'Premium Package',
-                    description: 'Designed for established brands needing full multi-channel coverage.',
-                    price: 'PKR 80,000',
-                    features: [
-                        'Everything in Standard Package.',
-                        'Multi-channel strategy: Search, Display, YouTube, Remarketing.',
-                        'Advanced audience segmentation and bid strategy customization.',
-                        'Custom ad copywriting with landing page consultation.',
-                        'Competitor analysis for keywords and ad insights.',
-                        'Weekly reports and strategic growth calls.'
-                    ],
-                    accent: 'var(--accent-purple)',
-                    bgAccent: 'rgba(124, 58, 237, 0.12)'
-                }
-            ]
+        {
+            name: 'Standard Package',
+            description: 'Built for growing businesses aiming for stronger conversions and scale.',
+            price: '$350',
+            features: [
+                'Everything in Basic Package.',
+                'Management of 4-6 campaigns (traffic, engagement, conversion).',
+                'Pixel setup and event tracking for optimization.',
+                'Retargeting campaigns to re-engage visitors.',
+                'A/B testing for creatives and ad copy.',
+                'Up to 8 ad creatives each month.',
+                'Fortnightly optimization reports and budget guidance.'
+            ],
+            accent: 'var(--accent-warm)',
+            bgAccent: 'rgba(119, 185, 62, 0.12)',
+            popular: true
+        },
+        {
+            name: 'Premium Package',
+            description: 'For brands that want full-funnel performance and aggressive growth.',
+            price: '$700',
+            features: [
+                'Everything in Standard Package.',
+                'Complete funnel strategy: awareness to conversion.',
+                'Dynamic product ads and catalog setup (if applicable).',
+                'Custom audience segmentation and lookalike creation.',
+                'Advanced copywriting and creative direction.',
+                'Weekly reporting with continuous optimization.',
+                'Dedicated marketing consultant for strategy support.'
+            ],
+            accent: 'var(--accent-coral)',
+            bgAccent: 'rgba(244, 63, 94, 0.12)'
         }
-    };
-
-    const activeServiceData = pricingByService[activeService];
+    ];
 
     return (
         <section className="relative py-10 lg:py-14 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
@@ -197,70 +137,13 @@ const Pricing = () => {
                             lineHeight: '1.8'
                         }}
                     >
-                        Toggle between Meta and Google services, then pick the package that matches your growth stage.
+                        Pick the package that matches your growth stage.
                     </p>
                 </div>
 
-                {/* Service Toggle */}
-                <div className="mb-10 lg:mb-12 flex justify-center">
-                    <button
-                        type="button"
-                        className="flex items-center gap-4 cursor-pointer group"
-                        onClick={() => {
-                            setActiveService(prev => prev === 'meta' ? 'google' : 'meta');
-                            setHoveredIndex(null);
-                        }}
-                    >
-                        <span
-                            className="text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300"
-                            style={{
-                                fontFamily: 'var(--font-mono)',
-                                color: activeService === 'meta' ? 'var(--text-primary)' : 'var(--text-muted)',
-                                opacity: activeService === 'meta' ? 1 : 0.5
-                            }}
-                        >
-                            Meta Ads
-                        </span>
-
-                        {/* Toggle Track */}
-                        <div
-                            className="relative w-14 h-8 rounded-full transition-colors duration-400 shrink-0"
-                            style={{
-                                background: activeService === 'meta'
-                                    ? 'var(--accent-navy)'
-                                    : 'var(--accent-warm)',
-                                boxShadow: activeService === 'meta'
-                                    ? '0 2px 10px rgba(30, 41, 59, 0.4), inset 0 1px 2px rgba(0,0,0,0.15)'
-                                    : '0 2px 10px rgba(119, 185, 62, 0.4), inset 0 1px 2px rgba(0,0,0,0.1)'
-                            }}
-                        >
-                            {/* Toggle Knob */}
-                            <div
-                                className="absolute top-1 w-6 h-6 rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-                                style={{
-                                    left: activeService === 'meta' ? '4px' : 'calc(100% - 28px)',
-                                    background: '#fff',
-                                    boxShadow: '0 1px 4px rgba(15, 23, 42, 0.25)'
-                                }}
-                            />
-                        </div>
-
-                        <span
-                            className="text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300"
-                            style={{
-                                fontFamily: 'var(--font-mono)',
-                                color: activeService === 'google' ? 'var(--text-primary)' : 'var(--text-muted)',
-                                opacity: activeService === 'google' ? 1 : 0.5
-                            }}
-                        >
-                            Google Ads
-                        </span>
-                    </button>
-                </div>
-
                 {/* Pricing Cards */}
-                <div key={activeService} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-7 items-stretch animate-scale-in">
-                    {activeServiceData.plans.map((plan, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-7 items-stretch animate-scale-in">
+                    {plans.map((plan, index) => (
                         <div
                             key={index}
                             className={`relative p-6 lg:p-7 transition-all duration-500 rounded-2xl group flex flex-col ${plan.popular ? 'md:col-span-2 xl:col-span-1 xl:-mt-4 xl:mb-4 z-10' : ''}`}
@@ -277,7 +160,7 @@ const Pricing = () => {
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            onClick={() => openWhatsApp(activeServiceData.label, plan.name, plan.price)}
+                            onClick={() => openWhatsApp(plan.name, plan.price)}
                         >
                             {plan.popular && (
                                 <div
@@ -316,7 +199,7 @@ const Pricing = () => {
                                         fontFamily: 'var(--font-mono)'
                                     }}
                                 >
-                                    {activeService === 'meta' ? 'Meta' : 'Google'}
+                                    Ads
                                 </span>
                             </div>
 
@@ -383,7 +266,7 @@ const Pricing = () => {
                                 }}
                                 onClick={(event) => {
                                     event.stopPropagation();
-                                    openWhatsApp(activeServiceData.label, plan.name, plan.price);
+                                    openWhatsApp(plan.name, plan.price);
                                 }}
                             >
                                 <span className="relative z-10 group-hover/btn:text-white transition-colors duration-300">
