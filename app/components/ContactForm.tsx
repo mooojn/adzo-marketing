@@ -18,10 +18,10 @@ export default function ContactForm() {
     ];
 
     const budgetRanges = [
-        "< 30k PKR",
-        "30k - 60k PKR",
-        "60k - 100k PKR",
-        "100k+ PKR"
+        "< $500",
+        "$500 - $1,500",
+        "$1,500 - $3,000",
+        "$3,000+"
     ];
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
@@ -149,7 +149,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Full Name</label>
                                     <input
                                         type="text"
-                                        placeholder="Ayesha Khan"
+                                        placeholder="John Doe"
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
@@ -165,7 +165,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Phone Number</label>
                                     <input
                                         type="tel"
-                                        placeholder="+92 321 4567890"
+                                        placeholder="+1 (555) 000-0000"
                                         value={phoneNumber}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         required

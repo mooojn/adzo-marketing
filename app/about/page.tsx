@@ -62,7 +62,7 @@ export default function About() {
                         </h1>
 
                         <p className="text-lg leading-relaxed lg:text-xl" style={{ fontFamily: "var(--font-display)", color: "var(--text-muted)", lineHeight: "1.8" }}>
-                            Based in Lahore, we help businesses transform their digital presence and unlock measurable growth.
+                            We help businesses transform their digital presence and unlock measurable growth.
                         </p>
                     </div>
                 </div>
@@ -77,10 +77,10 @@ export default function About() {
                             </h2>
                             <div className="space-y-4" style={{ fontFamily: "var(--font-display)", color: "var(--text-muted)", lineHeight: "1.8" }}>
                                 <p>
-                                    AdzoMarketing started with one mission: help businesses in Pakistan compete and win online.
+                                    AdzoMarketing started with one mission: help businesses globally compete and win online.
                                 </p>
                                 <p>
-                                    What began as a focused growth team became a full-service digital partner for brands in Lahore, Karachi, Islamabad, and beyond.
+                                    What began as a focused growth team became a full-service digital partner for brands across the region and beyond.
                                 </p>
                                 <p>
                                     We have helped over <span style={{ color: "var(--accent-warm)", fontWeight: 600 }}>150+ businesses</span> scale through performance marketing and design-driven execution.
