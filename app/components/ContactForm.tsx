@@ -137,42 +137,42 @@ export default function ContactForm() {
                     <div
                         className="relative p-8 lg:p-10 rounded-3xl"
                         style={{
-                            background: '#FFFFFF',
+                            background: 'var(--bg-card)',
                             border: '1px solid var(--border-subtle)',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.05)'
+                            boxShadow: 'var(--shadow-card)'
                         }}
                     >
                         <form className="space-y-8" onSubmit={handleSubmit}>
                             {/* Personal Info */}
                             <div className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Full Name</label>
+                                    <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-[var(--text-primary)]">Full Name</label>
                                     <input
                                         type="text"
                                         placeholder="Tony Stark"
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
-                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-gray-400 border border-gray-200 focus:border-transparent focus:ring-2"
+                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] focus:border-transparent focus:ring-2"
                                         style={{
-                                            background: '#F9FAFB', // Light gray background for contrast
-                                            color: '#111827', // Dark text
+                                            background: 'var(--bg-input)',
+                                            color: 'var(--text-primary)',
                                             '--tw-ring-color': 'var(--accent-warm)'
                                         } as React.CSSProperties}
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Phone Number</label>
+                                    <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-[var(--text-primary)]">Phone Number</label>
                                     <input
                                         type="tel"
                                         placeholder="+1 (555) 123-4567"
                                         value={phoneNumber}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         required
-                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-gray-400 border border-gray-200 focus:border-transparent focus:ring-2"
+                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] focus:border-transparent focus:ring-2"
                                         style={{
-                                            background: '#F9FAFB', // Light gray background for contrast
-                                            color: '#111827', // Dark text
+                                            background: 'var(--bg-input)',
+                                            color: 'var(--text-primary)',
                                             '--tw-ring-color': 'var(--accent-warm)'
                                         } as React.CSSProperties}
                                     />
@@ -181,7 +181,7 @@ export default function ContactForm() {
 
                             {/* Package Selection */}
                             <div>
-                                <label className="block text-sm font-bold mb-3 uppercase tracking-wide text-gray-700">Select Package</label>
+                                <label className="block text-sm font-bold mb-3 uppercase tracking-wide text-[var(--text-primary)]">Select Package</label>
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                     {packages.map((pkg) => (
                                         <button
@@ -190,9 +190,9 @@ export default function ContactForm() {
                                             onClick={() => setSelectedPackage(pkg)}
                                             className="px-4 py-3 rounded-lg text-sm text-center transition-all duration-300 border font-medium"
                                             style={{
-                                                background: selectedPackage === pkg ? 'var(--accent-warm)' : '#F9FAFB',
-                                                borderColor: selectedPackage === pkg ? 'var(--accent-warm)' : '#E5E7EB',
-                                                color: selectedPackage === pkg ? '#FFFFFF' : '#4B5563'
+                                                background: selectedPackage === pkg ? 'var(--accent-warm)' : 'var(--bg-input)',
+                                                borderColor: selectedPackage === pkg ? 'var(--accent-warm)' : 'var(--border-subtle)',
+                                                color: selectedPackage === pkg ? '#FFFFFF' : 'var(--text-muted)'
                                             }}
                                         >
                                             {pkg}
@@ -203,7 +203,7 @@ export default function ContactForm() {
 
                             {/* Budget Selection */}
                             <div>
-                                <label className="block text-sm font-bold mb-3 uppercase tracking-wide text-gray-700">Estimated Budget</label>
+                                <label className="block text-sm font-bold mb-3 uppercase tracking-wide text-[var(--text-primary)]">Estimated Budget</label>
                                 <div className="flex flex-wrap gap-3">
                                     {budgetRanges.map((range) => (
                                         <button
@@ -212,9 +212,9 @@ export default function ContactForm() {
                                             onClick={() => setBudget(range)}
                                             className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border"
                                             style={{
-                                                background: budget === range ? 'rgba(212, 132, 26, 0.1)' : '#F9FAFB',
-                                                borderColor: budget === range ? 'var(--accent-warm)' : '#E5E7EB',
-                                                color: budget === range ? 'var(--accent-warm)' : '#4B5563'
+                                                background: budget === range ? 'rgba(119, 185, 62, 0.1)' : 'var(--bg-input)',
+                                                borderColor: budget === range ? 'var(--accent-warm)' : 'var(--border-subtle)',
+                                                color: budget === range ? 'var(--accent-warm)' : 'var(--text-muted)'
                                             }}
                                         >
                                             {range}

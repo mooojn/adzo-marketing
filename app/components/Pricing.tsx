@@ -149,13 +149,13 @@ const Pricing = () => {
                             className={`relative p-6 lg:p-7 transition-all duration-500 rounded-2xl group flex flex-col ${plan.popular ? 'md:col-span-2 xl:col-span-1 xl:-mt-4 xl:mb-4 z-10' : ''}`}
                             style={{
                                 background: hoveredIndex === index
-                                    ? "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.98) 100%)"
-                                    : "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,250,252,0.92) 100%)",
-                                border: `1px solid ${hoveredIndex === index ? plan.accent : baseCardBorder}`,
+                                    ? "var(--bg-card-hover)"
+                                    : "var(--bg-card-default)",
+                                border: `1px solid ${hoveredIndex === index ? plan.accent : 'var(--border-card)'}`,
                                 backdropFilter: 'blur(10px)',
                                 boxShadow: hoveredIndex === index
-                                    ? `0 24px 45px -18px ${plan.bgAccent}, ${baseCardShadow}`
-                                    : baseCardShadow,
+                                    ? `0 24px 45px -18px ${plan.bgAccent}, var(--shadow-card)`
+                                    : 'var(--shadow-card)',
                                 transform: hoveredIndex === index ? 'translateY(-10px)' : 'translateY(0)'
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}
@@ -225,11 +225,11 @@ const Pricing = () => {
                                 >
                                     {plan.price}
                                 </span>
-                                <span className="text-xs sm:text-sm text-gray-400 font-mono">/month</span>
+                                <span className="text-xs sm:text-sm text-[var(--text-muted)] font-mono">/month</span>
                             </div>
 
                             {/* Divider */}
-                            <div className="h-px w-full mb-6 bg-linear-to-r from-transparent via-gray-200 to-transparent" />
+                            <div className="h-px w-full mb-6" style={{ background: 'linear-gradient(90deg, transparent, var(--border-card), transparent)' }} />
 
                             {/* Features */}
                             <ul className="space-y-3.5 mb-8 grow">

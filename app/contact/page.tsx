@@ -69,9 +69,9 @@ export default function Contact() {
                                 key={i}
                                 className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
                                 style={{
-                                    background: "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.94) 100%)",
+                                    background: "var(--bg-card-default)",
                                     border: "1px solid var(--border-subtle)",
-                                    boxShadow: "0 16px 30px -18px rgba(15,23,42,0.32)",
+                                    boxShadow: "var(--shadow-card)",
                                 }}
                             >
                                 <div
@@ -113,13 +113,18 @@ export default function Contact() {
                         ].map((faq, i) => (
                             <div
                                 key={i}
-                                className="rounded-2xl p-6"
-                                style={{ background: "rgba(255, 255, 255, 0.85)", border: "1px solid var(--border-subtle)" }}
+                                className="group rounded-2xl p-6 transition-all duration-300 hover:shadow-lg"
+                                style={{
+                                    background: "var(--bg-card)",
+                                    border: "1px solid var(--border-subtle)",
+                                    boxShadow: "var(--shadow-card)"
+                                }}
                             >
-                                <h3 className="mb-2 text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
+                                <h3 className="mb-3 text-lg font-bold group-hover:text-[var(--accent-warm)] transition-colors duration-300" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                                     {faq.q}
                                 </h3>
-                                <p style={{ fontFamily: "var(--font-display)", color: "var(--text-muted)", lineHeight: "1.7" }}>
+                                <div className="h-px w-8 mb-4 bg-[var(--accent-warm)] opacity-40" />
+                                <p className="text-base" style={{ fontFamily: "var(--font-display)", color: "var(--text-muted)", lineHeight: "1.7" }}>
                                     {faq.a}
                                 </p>
                             </div>

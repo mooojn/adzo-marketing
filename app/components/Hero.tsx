@@ -209,7 +209,7 @@ export default function Hero() {
 
             <a
               href="#case-studies"
-              className="group relative shrink-0 overflow-hidden rounded-full border border-[var(--accent-warm)]/35 bg-white/95 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--text-primary)] shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent-warm)] hover:shadow-[0_14px_30px_rgba(119,185,62,0.25)]"
+              className="group relative shrink-0 overflow-hidden rounded-full border border-[var(--accent-warm)]/35 bg-[var(--bg-card)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--text-primary)] shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent-warm)] hover:shadow-[0_14px_30px_rgba(119,185,62,0.25)]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               <span
@@ -235,7 +235,7 @@ export default function Hero() {
             {platforms.map((platform) => (
               <span
                 key={platform.key}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-white/90 px-3 py-1.5 shadow-sm"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-card)] px-3 py-1.5 shadow-sm"
                 aria-label={`${platform.name} reviews`}
               >
                 {platform.key === "google" && (
@@ -274,7 +274,7 @@ export default function Hero() {
           style={{ transitionDelay: "0.25s" }}
         >
           <div
-            className="relative overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-white/70 p-8 shadow-2xl backdrop-blur-xl"
+            className="relative overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)]/70 p-8 shadow-2xl backdrop-blur-xl"
             style={{ boxShadow: "0 32px 80px rgba(119,185,62,0.12), 0 8px 24px rgba(0,0,0,0.06)" }}
           >
             <div
@@ -293,15 +293,15 @@ export default function Hero() {
                     Get <span className="text-[var(--accent-warm)]">Free 1 Week Service</span> of Ads
                   </h2>
                   <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-white to-[var(--bg-secondary)] px-3 py-2.5 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                    <div className="rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-secondary)] px-3 py-2.5 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
                       <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[var(--text-primary)]">Meta + Google</p>
                       <p className="mt-0.5 text-[10px] text-[var(--text-muted)]">Dual-platform launch</p>
                     </div>
-                    <div className="rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-white to-[var(--bg-secondary)] px-3 py-2.5 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                    <div className="rounded-2xl border border-[var(--border-subtle)] bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-secondary)] px-3 py-2.5 shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
                       <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[var(--text-primary)]">Daily Tuning</p>
                       <p className="mt-0.5 text-[10px] text-[var(--text-muted)]">Lower cost, better leads</p>
                     </div>
-                    <div className="rounded-2xl border border-[var(--accent-warm)]/35 bg-gradient-to-br from-[var(--accent-warm)]/12 to-white px-3 py-2.5 shadow-[0_10px_24px_rgba(212,132,26,0.16)]">
+                    <div className="rounded-2xl border border-[var(--accent-warm)]/35 bg-gradient-to-br from-[var(--accent-warm)]/12 to-[var(--bg-card)] px-3 py-2.5 shadow-[0_10px_24px_rgba(212,132,26,0.16)]">
                       <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-[var(--accent-warm)]">7 Free Days</p>
                       <p className="mt-0.5 text-[10px] text-[var(--text-primary)]">No service fee in week 1</p>
                     </div>
@@ -330,7 +330,7 @@ export default function Hero() {
                       aria-required="true"
                       className={`
                         w-full rounded-xl border bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)]
-                        placeholder:text-slate-400 outline-none transition-all duration-200
+                        placeholder:text-[var(--text-muted)] outline-none transition-all duration-200
                         ${errors.phone
                           ? "border-red-400 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(248,113,113,0.2)]"
                           : "border-[var(--border-subtle)] focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)] hover:border-[var(--accent-warm)]/50"
@@ -357,7 +357,7 @@ export default function Hero() {
                       placeholder="Tony Stark"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-slate-400 outline-none transition-all duration-200 hover:border-[var(--accent-warm)]/50 focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)]"
+                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-200 hover:border-[var(--accent-warm)]/50 focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)]"
                       style={{ fontFamily: "var(--font-display)" }}
                     />
                   </div>
@@ -378,7 +378,7 @@ export default function Hero() {
                       placeholder="xyz.com"
                       value={formData.site}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-slate-400 outline-none transition-all duration-200 hover:border-[var(--accent-warm)]/50 focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)]"
+                      className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] outline-none transition-all duration-200 hover:border-[var(--accent-warm)]/50 focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)]"
                       style={{ fontFamily: "var(--font-display)" }}
                     />
                   </div>

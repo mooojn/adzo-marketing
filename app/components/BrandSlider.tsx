@@ -28,7 +28,7 @@ const BrandSlider = () => {
     const brandColors = ["#0EA5E9", "#2DD4BF", "#4F46E5", "#F43F5E", "#10B981", "#EF4444", "#EC4899", "#F59E0B"];
 
     return (
-        <section className="relative w-full overflow-hidden bg-white py-6 border-y border-[var(--border-subtle)]">
+        <section className="relative w-full overflow-hidden py-6 border-y border-[var(--border-subtle)]" style={{ background: 'var(--bg-primary)' }}>
             <div className="relative z-20 px-6 md:px-10 pb-4">
                 <div className="flex items-center gap-4">
                     <span className="h-px flex-1 bg-[var(--border-subtle)]" />
@@ -48,8 +48,8 @@ const BrandSlider = () => {
             </div>
 
             {/* Gradient Masks for fade effect */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-white to-transparent" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-white to-transparent" />
+            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[var(--bg-primary)] to-transparent" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[var(--bg-primary)] to-transparent" />
 
             <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
                 {brands.map((brand, index) => (

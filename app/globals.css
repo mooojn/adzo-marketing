@@ -46,6 +46,15 @@
   /* Green low opacity */
   --border-light: rgba(248, 250, 252, 0.15);
 
+  /* Card & Components */
+  --bg-card: #FFFFFF;
+  --bg-card-hover: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 0.98) 100%);
+  --bg-card-default: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.92) 100%);
+  --bg-navbar: rgba(255, 255, 255, 0.9);
+  --bg-input: #F9FAFB;
+  --border-card: rgba(15, 23, 42, 0.1);
+  --shadow-card: 0 14px 34px -20px rgba(15, 23, 42, 0.32), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+
   /* Gradients */
   --gradient-ambient: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(119, 185, 62, 0.08) 0%, transparent 60%);
   --gradient-mesh:
@@ -59,6 +68,38 @@
 
   --background: var(--bg-primary);
   --foreground: var(--text-primary);
+}
+
+.dark {
+  --bg-primary: #0F172A;
+  --bg-secondary: #020617;
+  --bg-dark: #020617;
+  --bg-darker: #000000;
+
+  /* Text Colors */
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-light: #F8FAFC;
+  --text-light-muted: rgba(248, 250, 252, 0.7);
+
+  /* Borders */
+  --border-subtle: rgba(119, 185, 62, 0.2);
+  --border-light: rgba(248, 250, 252, 0.1);
+
+  /* Primary Accents */
+  --accent-warm-light: #77B93E;
+
+  /* Card & Components */
+  --bg-card: #1E293B;
+  --bg-card-hover: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+  --bg-card-default: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+  --bg-navbar: rgba(15, 23, 42, 0.9);
+  --bg-input: #0F172A;
+  --border-card: rgba(255, 255, 255, 0.1);
+  --shadow-card: 0 14px 34px -20px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+
+  /* Gradients */
+  --gradient-ambient: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(119, 185, 62, 0.15) 0%, transparent 60%);
 }
 
 @theme inline {
@@ -332,4 +373,25 @@ body {
 
 .animate-marquee-right {
   animation: marquee-right 30s linear infinite;
+}
+
+/* View Transition for Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
 }

@@ -88,13 +88,13 @@ const DetailedServices = () => {
                             className="group relative p-8 transition-all duration-500 rounded-2xl cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                             style={{
                                 background: hoveredIndex === index
-                                    ? "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.98) 100%)"
-                                    : "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,250,252,0.92) 100%)",
-                                border: `1px solid ${hoveredIndex === index ? item.accent : baseCardBorder}`,
+                                    ? "var(--bg-card-hover)"
+                                    : "var(--bg-card-default)",
+                                border: `1px solid ${hoveredIndex === index ? item.accent : 'var(--border-card)'}`,
                                 backdropFilter: 'blur(10px)',
                                 boxShadow: hoveredIndex === index
-                                    ? `0 24px 45px -18px ${item.bgAccent}, ${baseCardShadow}`
-                                    : baseCardShadow,
+                                    ? `0 24px 45px -18px ${item.bgAccent}, var(--shadow-card)`
+                                    : 'var(--shadow-card)',
                                 transform: hoveredIndex === index ? 'translateY(-10px)' : 'translateY(0)'
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}

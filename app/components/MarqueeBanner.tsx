@@ -140,14 +140,16 @@ const MarqueeBanner = () => {
                                 key={i}
                                 className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-1"
                                 style={{
-                                    background: "#FFFFFF",
+                                    background: "var(--bg-card)",
                                     border: "1px solid var(--border-subtle)",
+                                    boxShadow: "var(--shadow-card)",
                                 }}
                             >
                                 <div
                                     className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                                     style={{
-                                        background: "rgba(79, 70, 229, 0.1)",
+                                        background: "var(--accent-warm-light)",
+                                        opacity: 0.2,
                                         color: "var(--accent-warm)",
                                     }}
                                 >
@@ -164,7 +166,10 @@ const MarqueeBanner = () => {
                                 </h4>
                                 <p
                                     className="text-sm leading-relaxed"
-                                    style={{ color: "var(--text-muted)" }}
+                                    style={{
+                                        fontFamily: "var(--font-display)",
+                                        color: "var(--text-muted)",
+                                    }}
                                 >
                                     {reason.desc}
                                 </p>

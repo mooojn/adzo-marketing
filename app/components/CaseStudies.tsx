@@ -99,12 +99,9 @@ export default function CaseStudies() {
                             key={index}
                             className="group relative flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer"
                             style={{
-                                background: "#FFFFFF",
+                                background: "var(--bg-card)",
                                 border: "1px solid var(--border-subtle)",
-                                boxShadow:
-                                    hoveredIndex === index
-                                        ? "0 25px 50px -12px rgba(0, 0, 0, 0.1)"
-                                        : "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
+                                boxShadow: "var(--shadow-card)",
                                 transform: hoveredIndex === index ? "translateY(-8px)" : "translateY(0)",
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}
@@ -120,8 +117,8 @@ export default function CaseStudies() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/25 transition-colors duration-500" />
 
                                 <div
-                                    className="absolute bottom-6 left-6 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white shadow-lg"
-                                    style={{ color: study.color, fontFamily: "var(--font-mono)" }}
+                                    className="absolute bottom-6 left-6 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--bg-card)] shadow-lg"
+                                    style={{ color: study.resultColor || study.color, fontFamily: "var(--font-mono)" }}
                                 >
                                     {study.result}
                                 </div>
@@ -180,12 +177,12 @@ export default function CaseStudies() {
                     <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm" />
 
                     <div
-                        className="relative z-10 w-full max-w-5xl overflow-hidden rounded-2xl border border-white/20 bg-white shadow-2xl"
+                        className="relative z-10 w-full max-w-5xl overflow-hidden rounded-2xl border border-[var(--border-light)] bg-[var(--bg-card)] shadow-2xl"
                         onClick={(event) => event.stopPropagation()}
                     >
                         <button
                             type="button"
-                            className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-md transition-colors hover:bg-white hover:text-slate-900"
+                            className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--bg-card)]/90 text-[var(--text-primary)] shadow-md transition-colors hover:bg-[var(--bg-card)] hover:text-[var(--accent-warm)]"
                             onClick={() => setActiveStudy(null)}
                             aria-label="Close case study modal"
                         >

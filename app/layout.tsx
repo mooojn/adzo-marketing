@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import Navbar from "./components/Navbar";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -28,13 +29,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${plexMono.variable} antialiased`}
+        className={`${manrope.variable} ${plexMono.variable} antialiased transition-colors duration-300 ease-in-out`}
       >
-        <Navbar />
-        {children}
-        <FloatingWhatsApp />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+        >
+          <Navbar />
+          {children}
+          <FloatingWhatsApp />
+        </ThemeProvider>
       </body>
     </html>
   );

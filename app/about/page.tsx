@@ -99,9 +99,9 @@ export default function About() {
                                     key={i}
                                     className="rounded-2xl p-6 text-center"
                                     style={{
-                                        background: "rgba(255, 255, 255, 0.8)",
+                                        background: "var(--bg-card)",
                                         border: "1px solid var(--border-subtle)",
-                                        boxShadow: "0 14px 26px -20px rgba(15,23,42,0.4)",
+                                        boxShadow: "var(--shadow-card)",
                                     }}
                                 >
                                     <div className="mb-2 text-3xl font-bold lg:text-4xl" style={{ fontFamily: "var(--font-display)", color: "var(--accent-warm)" }}>
@@ -136,9 +136,9 @@ export default function About() {
                                     key={i}
                                     className="group rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
                                     style={{
-                                        background: "linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(248,250,252,0.94) 100%)",
+                                        background: "var(--bg-card-default)",
                                         border: "1px solid var(--border-subtle)",
-                                        boxShadow: "0 20px 34px -24px rgba(15,23,42,0.38)",
+                                        boxShadow: "var(--shadow-card)",
                                     }}
                                 >
                                     <div
