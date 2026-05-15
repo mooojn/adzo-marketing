@@ -10,6 +10,7 @@ type Study = {
     image: string;
     highlights: string[];
     color: string;
+    resultColor?: string;
 };
 
 export default function CaseStudies() {
