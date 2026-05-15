@@ -115,7 +115,7 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <p className="text-sm uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Call Us Directly</p>
-                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>+92 370 6037115</p>
+                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>+1 (307) 215-9781</p>
                                 </div>
                             </div>
 
@@ -149,7 +149,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Full Name</label>
                                     <input
                                         type="text"
-                                        placeholder="John Doe"
+                                        placeholder="Tony Stark"
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
@@ -165,7 +165,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700">Phone Number</label>
                                     <input
                                         type="tel"
-                                        placeholder="+1 (555) 000-0000"
+                                        placeholder="+1 (555) 123-4567"
                                         value={phoneNumber}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         required

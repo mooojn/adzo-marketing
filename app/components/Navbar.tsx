@@ -107,7 +107,7 @@ export default function Navbar() {
 
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center">
-                        <Link target="_blank" href="https://wa.me/+923706037115" className="group relative">
+                        <Link target="_blank" href="https://wa.me/+13072159781" className="group relative">
                             <span className="absolute inset-0 rounded-full bg-[var(--accent-warm)] blur-md opacity-30 transition-opacity duration-300 group-hover:opacity-60"></span>
                             <button className="relative px-7 py-3 bg-[var(--accent-warm)] text-white text-sm font-semibold rounded-full shadow-sm transition-transform duration-300 transform group-hover:-translate-y-0.5 group-active:translate-y-0 group-hover:shadow-md">
                                 Let's Talk
@@ -163,7 +163,7 @@ export default function Navbar() {
                             ${isMobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
                         `}
                     >
-                        <Link target="_blank" href="https://wa.me/+923706037115" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link target="_blank" href="https://wa.me/+13072159781" onClick={() => setIsMobileMenuOpen(false)}>
                             <button className="w-full py-4 text-center rounded-2xl bg-[var(--accent-warm)] text-white font-semibold text-lg shadow-[0_8px_20px_0_rgba(119,185,62,0.3)] transition-transform active:scale-95">
                                 Let's Talk
                             </button>

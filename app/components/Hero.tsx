@@ -134,9 +134,8 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-20 pb-28 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:pb-24 xl:px-16">
         <div
-          className={`flex flex-col items-start transition-all duration-700 lg:flex-1 ${
-            isLoaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          }`}
+          className={`flex flex-col items-start transition-all duration-700 lg:flex-1 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
         >
           <div
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--accent-warm)]/10 px-4 py-1.5"
@@ -270,9 +269,8 @@ export default function Hero() {
         </div>
 
         <div
-          className={`mt-12 w-full transition-all duration-700 lg:mt-0 lg:w-[420px] xl:w-[460px] ${
-            isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`mt-12 w-full transition-all duration-700 lg:mt-0 lg:w-[420px] xl:w-[460px] ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
           style={{ transitionDelay: "0.25s" }}
         >
           <div
@@ -324,7 +322,7 @@ export default function Hero() {
                       name="phone"
                       type="tel"
                       autoComplete="tel"
-                      placeholder="+92 323 0000000"
+                      placeholder="+1 (555) 123-4567"
                       value={formData.phone}
                       onChange={handleChange}
                       aria-invalid={Boolean(errors.phone)}
@@ -333,10 +331,9 @@ export default function Hero() {
                       className={`
                         w-full rounded-xl border bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)]
                         placeholder:text-slate-400 outline-none transition-all duration-200
-                        ${
-                          errors.phone
-                            ? "border-red-400 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(248,113,113,0.2)]"
-                            : "border-[var(--border-subtle)] focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)] hover:border-[var(--accent-warm)]/50"
+                        ${errors.phone
+                          ? "border-red-400 focus:border-red-500 focus:shadow-[0_0_0_3px_rgba(248,113,113,0.2)]"
+                          : "border-[var(--border-subtle)] focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)] hover:border-[var(--accent-warm)]/50"
                         }
                       `}
                       style={{ fontFamily: "var(--font-display)" }}
@@ -357,7 +354,7 @@ export default function Hero() {
                       name="name"
                       type="text"
                       autoComplete="name"
-                      placeholder="Kinza Fatima"
+                      placeholder="Tony Stark"
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] px-4 py-3.5 text-sm text-[var(--text-primary)] placeholder:text-slate-400 outline-none transition-all duration-200 hover:border-[var(--accent-warm)]/50 focus:border-[var(--accent-warm)] focus:shadow-[0_0_0_3px_rgba(119,185,62,0.18)]"
@@ -453,9 +450,8 @@ export default function Hero() {
       </div>
 
       <div
-        className={`relative z-20 w-full transition-all duration-700 ${
-          isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-        }`}
+        className={`relative z-20 w-full transition-all duration-700 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+          }`}
         style={{
           transitionDelay: "0.55s",
           background: "linear-gradient(90deg, var(--accent-warm) 0%, var(--accent-sage) 100%)",
