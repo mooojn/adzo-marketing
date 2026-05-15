@@ -31,12 +31,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${plexMono.variable} antialiased transition-colors duration-300 ease-in-out`}
+        className={`${manrope.variable} ${plexMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
+          disableTransitionOnChange
         >
           <Navbar />
           {children}
