@@ -89,7 +89,7 @@ export default function Hero() {
 
   const stats: Stat[] = [
     { number: "150+", label: "Brands Scaled" },
-    { number: "1M+", label: "Traffic Generated" },
+    { number: "15M+", label: "Traffic Generated" },
     { number: "100+", label: "Campaigns Scaled" },
     { number: "4.9/5", label: "Client Rating" },
   ];

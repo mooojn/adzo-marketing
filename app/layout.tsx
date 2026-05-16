@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import Navbar from "./components/Navbar";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import { FloatingCall } from "./components/FloatingCTA";
 import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
 
@@ -41,7 +41,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
-          <FloatingWhatsApp />
+          <FloatingCall />
         </ThemeProvider>
       </body>
     </html>
