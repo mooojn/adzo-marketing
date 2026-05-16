@@ -28,6 +28,7 @@ const Pricing = () => {
 
     const scrollToContact = () => {
         sessionStorage.setItem("contact-package", CUSTOM_PACKAGE);
+        window.dispatchEvent(new CustomEvent("contact-package", { detail: CUSTOM_PACKAGE }));
         const contactSection = document.getElementById("contact-form");
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: "smooth", block: "start" });

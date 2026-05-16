@@ -20,16 +20,27 @@ export default function ContactForm() {
 
     useEffect(() => {
         const stored = sessionStorage.getItem("contact-package");
-        if (!stored) return;
-        if (packages.includes(stored)) setSelectedPackage(stored);
-        sessionStorage.removeItem("contact-package");
+        if (stored && packages.includes(stored)) {
+            setSelectedPackage(stored);
+            sessionStorage.removeItem("contact-package");
+        }
+
+        const handlePackageEvent = (event: Event) => {
+            const customEvent = event as CustomEvent<string>;
+            if (customEvent.detail && packages.includes(customEvent.detail)) {
+                setSelectedPackage(customEvent.detail);
+            }
+        };
+
+        window.addEventListener("contact-package", handlePackageEvent);
+        return () => window.removeEventListener("contact-package", handlePackageEvent);
     }, []);
 
     const budgetRanges = [
         "< $500",
-        "$500 - $1,500",
-        "$1,500 - $3,000",
-        "$3,000+"
+        "$800 - $1,200",
+        "$1,500 - $1,800",
+        "$2,000 - $2,500",
     ];
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
@@ -218,7 +229,7 @@ export default function ContactForm() {
                                             key={range}
                                             type="button"
                                             onClick={() => setBudget(range)}
-                                            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border"
+                                            className="px-2 py-2 rounded-full text-sm font-medium transition-all duration-300 border"
                                             style={{
                                                 background: budget === range ? 'rgba(119, 185, 62, 0.1)' : 'var(--bg-input)',
                                                 borderColor: budget === range ? 'var(--accent-warm)' : 'var(--border-subtle)',
