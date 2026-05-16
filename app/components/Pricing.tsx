@@ -24,6 +24,14 @@ const Pricing = () => {
         window.open(url, "_blank", "noopener,noreferrer");
     };
 
+    const scrollToContact = (planName: string) => {
+        sessionStorage.setItem("contact-package", planName);
+        const contactSection = document.getElementById("contact-form");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     const plans: Plan[] = [
         {
             name: 'Basic Package',
@@ -160,7 +168,6 @@ const Pricing = () => {
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            onClick={() => openWhatsApp(plan.name, plan.price)}
                         >
                             {plan.popular && (
                                 <div
@@ -255,28 +262,40 @@ const Pricing = () => {
                             </ul>
 
                             {/* CTA Button */}
-                            <button
-                                type="button"
-                                className="w-full py-3.5 text-[11px] sm:text-xs tracking-[0.18em] uppercase font-semibold transition-all duration-300 relative overflow-hidden group/btn"
-                                style={{
-                                    fontFamily: 'var(--font-mono)',
-                                    background: 'transparent',
-                                    color: plan.accent,
-                                    border: `1px solid ${plan.accent}`
-                                }}
-                                onClick={(event) => {
-                                    event.stopPropagation();
-                                    openWhatsApp(plan.name, plan.price);
-                                }}
-                            >
-                                <span className="relative z-10 group-hover/btn:text-white transition-colors duration-300">
-                                    Choose {plan.name.replace(' Package', '')}
-                                </span>
-                                <div
-                                    className="absolute inset-0 w-full h-full transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"
-                                    style={{ background: plan.accent }}
-                                />
-                            </button>
+                            <div className="flex flex-col gap-3">
+                                <button
+                                    type="button"
+                                    className="w-full py-3.5 text-[11px] sm:text-xs tracking-[0.18em] uppercase font-semibold transition-all duration-300 relative overflow-hidden group/btn"
+                                    style={{
+                                        fontFamily: 'var(--font-mono)',
+                                        background: 'transparent',
+                                        color: plan.accent,
+                                        border: `1px solid ${plan.accent}`,
+                                    }}
+                                    onClick={() => openWhatsApp(plan.name, plan.price)}
+                                >
+                                    <span className="relative z-10 transition-colors duration-300 group-hover/btn:text-white">
+                                        Choose {plan.name.replace(" Package", "")}
+                                    </span>
+                                    <div
+                                        className="absolute inset-0 h-full w-full origin-left scale-x-0 transition-transform duration-300 group-hover/btn:scale-x-100"
+                                        style={{ background: plan.accent }}
+                                    />
+                                </button>
+                                <button
+                                    type="button"
+                                    className="w-full py-3.5 text-[11px] sm:text-xs tracking-[0.18em] uppercase font-semibold transition-all duration-300 hover:opacity-90"
+                                    style={{
+                                        fontFamily: 'var(--font-mono)',
+                                        background: plan.bgAccent,
+                                        color: plan.accent,
+                                        border: `1px solid color-mix(in srgb, ${plan.accent} 35%, transparent)`,
+                                    }}
+                                    onClick={() => scrollToContact(plan.name)}
+                                >
+                                    Customize
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>

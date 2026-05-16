@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ContactForm() {
     const [fullName, setFullName] = useState<string>("");
@@ -13,9 +13,17 @@ export default function ContactForm() {
 
     const packages = [
         "Basic Package",
-        "Growth Package",
-        "Premium Package"
+        "Standard Package",
+        "Premium Package",
     ];
+
+    useEffect(() => {
+        const stored = sessionStorage.getItem("contact-package");
+        if (!stored) return;
+        const match = packages.find((pkg) => pkg === stored);
+        if (match) setSelectedPackage(match);
+        sessionStorage.removeItem("contact-package");
+    }, []);
 
     const budgetRanges = [
         "< $500",
