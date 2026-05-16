@@ -24,8 +24,10 @@ const Pricing = () => {
         window.open(url, "_blank", "noopener,noreferrer");
     };
 
-    const scrollToContact = (planName: string) => {
-        sessionStorage.setItem("contact-package", planName);
+    const CUSTOM_PACKAGE = "Custom Package";
+
+    const scrollToContact = () => {
+        sessionStorage.setItem("contact-package", CUSTOM_PACKAGE);
         const contactSection = document.getElementById("contact-form");
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -291,7 +293,7 @@ const Pricing = () => {
                                         color: plan.accent,
                                         border: `1px solid color-mix(in srgb, ${plan.accent} 35%, transparent)`,
                                     }}
-                                    onClick={() => scrollToContact(plan.name)}
+                                    onClick={scrollToContact}
                                 >
                                     Customize
                                 </button>

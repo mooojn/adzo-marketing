@@ -15,13 +15,13 @@ export default function ContactForm() {
         "Basic Package",
         "Standard Package",
         "Premium Package",
+        "Custom Package",
     ];
 
     useEffect(() => {
         const stored = sessionStorage.getItem("contact-package");
         if (!stored) return;
-        const match = packages.find((pkg) => pkg === stored);
-        if (match) setSelectedPackage(match);
+        if (packages.includes(stored)) setSelectedPackage(stored);
         sessionStorage.removeItem("contact-package");
     }, []);
 
@@ -190,7 +190,7 @@ export default function ContactForm() {
                             {/* Package Selection */}
                             <div>
                                 <label className="block text-sm font-bold mb-3 uppercase tracking-wide text-[var(--text-primary)]">Select Package</label>
-                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                                     {packages.map((pkg) => (
                                         <button
                                             key={pkg}
