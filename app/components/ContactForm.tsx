@@ -79,7 +79,7 @@ export default function ContactForm() {
         }
 
         setPackageToast(`${selectedPackage} selected`);
-        const toastTimer = window.setTimeout(() => setPackageToast(""), 2200);
+        const toastTimer = window.setTimeout(() => setPackageToast(""), 1000);
         return () => window.clearTimeout(toastTimer);
     }, [selectedPackage]);
 
@@ -202,20 +202,6 @@ export default function ContactForm() {
                         }}
                     >
                         <form className="space-y-8" onSubmit={handleSubmit}>
-                            {packageToast ? (
-                                <div className="flex justify-center">
-                                    <div
-                                        className="px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold"
-                                        style={{
-                                            background: "var(--bg-input)",
-                                            color: "var(--accent-warm)",
-                                            border: "1px solid var(--border-subtle)",
-                                        }}
-                                    >
-                                        {packageToast}
-                                    </div>
-                                </div>
-                            ) : null}
                             {/* Personal Info */}
                             <div className="space-y-6">
                                 <div>
@@ -326,6 +312,30 @@ export default function ContactForm() {
                     </div>
                 </div>
             </div>
+            {packageToast ? (
+                <div
+                    className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-semibold"
+                    style={{
+                        background: "linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.92))",
+                        color: "#F8FAFC",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        boxShadow: "0 18px 40px rgba(15, 23, 42, 0.35)",
+                        backdropFilter: "blur(12px)",
+                    }}
+                    aria-live="polite"
+                >
+                    <span className="inline-flex items-center gap-2">
+                        <span
+                            className="inline-block h-2 w-2 rounded-full"
+                            style={{
+                                background: "var(--accent-warm)",
+                                boxShadow: "0 0 10px rgba(119, 185, 62, 0.65)",
+                            }}
+                        />
+                        {packageToast}
+                    </span>
+                </div>
+            ) : null}
         </section>
     );
 }
