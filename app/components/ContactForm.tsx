@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+const PACKAGE_BUDGETS: Record<string, string> = {
+    "Basic Package": "$800 - $1,200",
+    "Standard Package": "$1,500 - $1,800",
+    "Premium Package": "$2,000 - $2,500",
+};
+
 export default function ContactForm() {
     const [fullName, setFullName] = useState<string>("");
     const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -10,6 +16,7 @@ export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [submitted, setSubmitted] = useState<boolean>(false);
     const [submitError, setSubmitError] = useState<string>("");
+    const [packageToast, setPackageToast] = useState<string>("");
 
     const packages = [
         "Basic Package",
@@ -62,6 +69,19 @@ export default function ContactForm() {
             window.removeEventListener("contact-selection", handleSelectionEvent);
         };
     }, []);
+
+    useEffect(() => {
+        if (!selectedPackage) return;
+
+        const mappedBudget = PACKAGE_BUDGETS[selectedPackage];
+        if (mappedBudget) {
+            setBudget(mappedBudget);
+        }
+
+        setPackageToast(`${selectedPackage} selected`);
+        const toastTimer = window.setTimeout(() => setPackageToast(""), 2200);
+        return () => window.clearTimeout(toastTimer);
+    }, [selectedPackage]);
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault();
@@ -182,6 +202,20 @@ export default function ContactForm() {
                         }}
                     >
                         <form className="space-y-8" onSubmit={handleSubmit}>
+                            {packageToast ? (
+                                <div className="flex justify-center">
+                                    <div
+                                        className="px-4 py-2 rounded-full text-xs uppercase tracking-widest font-semibold"
+                                        style={{
+                                            background: "var(--bg-input)",
+                                            color: "var(--accent-warm)",
+                                            border: "1px solid var(--border-subtle)",
+                                        }}
+                                    >
+                                        {packageToast}
+                                    </div>
+                                </div>
+                            ) : null}
                             {/* Personal Info */}
                             <div className="space-y-6">
                                 <div>
