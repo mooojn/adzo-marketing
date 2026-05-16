@@ -28,7 +28,7 @@ const Pricing = () => {
         {
             name: 'Basic Package',
             description: 'Ideal for startups and small businesses launching online campaigns.',
-            price: '$150',
+            price: '$800',
             features: [
                 'Ad account setup and business manager configuration.',
                 'Audience and competitor research for focused targeting.',
@@ -43,7 +43,7 @@ const Pricing = () => {
         {
             name: 'Standard Package',
             description: 'Built for growing businesses aiming for stronger conversions and scale.',
-            price: '$350',
+            price: '$1500',
             features: [
                 'Everything in Basic Package.',
                 'Management of 4-6 campaigns (traffic, engagement, conversion).',
@@ -60,7 +60,7 @@ const Pricing = () => {
         {
             name: 'Premium Package',
             description: 'For brands that want full-funnel performance and aggressive growth.',
-            price: '$700',
+            price: '$2000',
             features: [
                 'Everything in Standard Package.',
                 'Complete funnel strategy: awareness to conversion.',

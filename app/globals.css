@@ -374,3 +374,13 @@ body {
 .animate-marquee-right {
   animation: marquee-right 30s linear infinite;
 }
+
+@keyframes testimonialAudioBar {
+  from {
+    transform: scaleY(0.45);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
