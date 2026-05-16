@@ -18,11 +18,24 @@ export default function ContactForm() {
         "Custom Package",
     ];
 
+    const budgetRanges = [
+        "< $500",
+        "$800 - $1,200",
+        "$1,500 - $1,800",
+        "$2,000 - $2,500",
+    ];
+
     useEffect(() => {
-        const stored = sessionStorage.getItem("contact-package");
-        if (stored && packages.includes(stored)) {
-            setSelectedPackage(stored);
+        const storedPackage = sessionStorage.getItem("contact-package");
+        if (storedPackage && packages.includes(storedPackage)) {
+            setSelectedPackage(storedPackage);
             sessionStorage.removeItem("contact-package");
+        }
+
+        const storedBudget = sessionStorage.getItem("contact-budget");
+        if (storedBudget && budgetRanges.includes(storedBudget)) {
+            setBudget(storedBudget);
+            sessionStorage.removeItem("contact-budget");
         }
 
         const handlePackageEvent = (event: Event) => {
@@ -32,16 +45,23 @@ export default function ContactForm() {
             }
         };
 
-        window.addEventListener("contact-package", handlePackageEvent);
-        return () => window.removeEventListener("contact-package", handlePackageEvent);
-    }, []);
+        const handleSelectionEvent = (event: Event) => {
+            const customEvent = event as CustomEvent<{ package?: string; budget?: string }>;
+            if (customEvent.detail?.package && packages.includes(customEvent.detail.package)) {
+                setSelectedPackage(customEvent.detail.package);
+            }
+            if (customEvent.detail?.budget && budgetRanges.includes(customEvent.detail.budget)) {
+                setBudget(customEvent.detail.budget);
+            }
+        };
 
-    const budgetRanges = [
-        "< $500",
-        "$800 - $1,200",
-        "$1,500 - $1,800",
-        "$2,000 - $2,500",
-    ];
+        window.addEventListener("contact-package", handlePackageEvent);
+        window.addEventListener("contact-selection", handleSelectionEvent);
+        return () => {
+            window.removeEventListener("contact-package", handlePackageEvent);
+            window.removeEventListener("contact-selection", handleSelectionEvent);
+        };
+    }, []);
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
         e.preventDefault();
@@ -206,6 +226,7 @@ export default function ContactForm() {
                                         <button
                                             key={pkg}
                                             type="button"
+                                            data-package={pkg}
                                             onClick={() => setSelectedPackage(pkg)}
                                             className="px-4 py-3 rounded-lg text-sm text-center transition-all duration-300 border font-medium"
                                             style={{
@@ -228,6 +249,7 @@ export default function ContactForm() {
                                         <button
                                             key={range}
                                             type="button"
+                                            data-budget={range}
                                             onClick={() => setBudget(range)}
                                             className="px-2 py-2 rounded-full text-sm font-medium transition-all duration-300 border"
                                             style={{

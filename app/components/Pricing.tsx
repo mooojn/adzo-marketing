@@ -16,23 +16,49 @@ const Pricing = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const baseCardBorder = "rgba(15, 23, 42, 0.1)";
     const baseCardShadow = "0 14px 34px -20px rgba(15, 23, 42, 0.32), 0 1px 0 rgba(255,255,255,0.9) inset";
-    const whatsappNumber = "923706037115";
-
-    const openWhatsApp = (planName: string, planPrice: string) => {
-        const message = `Hi Adzzly, I'm interested in your ${planName} package (${planPrice} / month). Please share more details.`;
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-    };
 
     const CUSTOM_PACKAGE = "Custom Package";
 
-    const scrollToContact = () => {
-        sessionStorage.setItem("contact-package", CUSTOM_PACKAGE);
-        window.dispatchEvent(new CustomEvent("contact-package", { detail: CUSTOM_PACKAGE }));
+    const packageBudgets: Record<string, string> = {
+        "Basic Package": "$800 - $1,200",
+        "Standard Package": "$1,500 - $1,800",
+        "Premium Package": "$2,000 - $2,500",
+    };
+
+    const selectContactOptions = (packageName: string, budgetRange?: string) => {
+        const packageButton = document.querySelector<HTMLButtonElement>(
+            `#contact-form button[data-package="${packageName}"]`
+        );
+        packageButton?.click();
+
+        if (budgetRange) {
+            const budgetButton = document.querySelector<HTMLButtonElement>(
+                `#contact-form button[data-budget="${budgetRange}"]`
+            );
+            budgetButton?.click();
+        }
+    };
+
+    const scrollToContact = (packageName: string, budgetRange?: string) => {
+        sessionStorage.setItem("contact-package", packageName);
+        if (budgetRange) {
+            sessionStorage.setItem("contact-budget", budgetRange);
+        }
+        window.dispatchEvent(
+            new CustomEvent("contact-selection", {
+                detail: { package: packageName, budget: budgetRange },
+            })
+        );
         const contactSection = document.getElementById("contact-form");
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
+        setTimeout(() => selectContactOptions(packageName, budgetRange), 150);
+    };
+
+    const scrollToCustom = () => {
+        scrollToContact(CUSTOM_PACKAGE);
+        window.dispatchEvent(new CustomEvent("contact-package", { detail: CUSTOM_PACKAGE }));
     };
 
     const plans: Plan[] = [
@@ -275,7 +301,7 @@ const Pricing = () => {
                                         color: plan.accent,
                                         border: `1px solid ${plan.accent}`,
                                     }}
-                                    onClick={() => openWhatsApp(plan.name, plan.price)}
+                                    onClick={() => scrollToContact(plan.name, packageBudgets[plan.name])}
                                 >
                                     <span className="relative z-10 transition-colors duration-300 group-hover/btn:text-white">
                                         Choose {plan.name.replace(" Package", "")}
@@ -294,7 +320,7 @@ const Pricing = () => {
                                         color: plan.accent,
                                         border: `1px solid color-mix(in srgb, ${plan.accent} 35%, transparent)`,
                                     }}
-                                    onClick={scrollToContact}
+                                    onClick={scrollToCustom}
                                 >
                                     Customize
                                 </button>
