@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { CONTACT_EMAIL } from "../../utils/contact";
 
 type ContactPayload = {
   formType?: "hero" | "contact";
@@ -24,7 +25,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || "info@adzomarketing.com";
+    const toEmail = process.env.CONTACT_TO_EMAIL || CONTACT_EMAIL;
     const fromEmail = process.env.RESEND_FROM_EMAIL || "Adzo Marketing <onboarding@resend.dev>";
 
     const formType = body.formType || "contact";

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CONTACT_PHONE, CONTACT_EMAIL } from "../utils/contact";
 
 const PACKAGE_BUDGETS: Record<string, string> = {
     "Basic Package": "$800 - $1,200",
@@ -174,7 +175,7 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <p className="text-sm uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Call Us Directly</p>
-                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>+1 (307) 215-9781</p>
+                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>{CONTACT_PHONE}</p>
                                 </div>
                             </div>
 
@@ -186,7 +187,7 @@ export default function ContactForm() {
                                 </div>
                                 <div>
                                     <p className="text-sm uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Email Us</p>
-                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>info@adzomarketing.com</p>
+                                    <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>{CONTACT_EMAIL}</p>
                                 </div>
                             </div>
                         </div>

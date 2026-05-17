@@ -1,8 +1,7 @@
 "use client";
 
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
-
-const PHONE = "923706037115";
+import { CONTACT_WHATSAPP } from "../utils/contact";
 
 type FloatingCTAProps = {
   href: string;
@@ -47,7 +46,7 @@ function FloatingCTAButton({
 export function FloatingWhatsApp() {
   return (
     <FloatingCTAButton
-      href={`https://wa.me/${PHONE}`}
+      href={`https://wa.me/${CONTACT_WHATSAPP}`}
       ariaLabel="Chat on WhatsApp"
       glowColor="rgba(37, 211, 102, 0.45)"
       buttonClassName="bg-gradient-to-br from-[#25D366] to-[#128C7E] shadow-[0_12px_30px_rgba(18,140,126,0.4)] group-hover:shadow-[0_18px_36px_rgba(18,140,126,0.48)]"
@@ -60,7 +59,7 @@ export function FloatingWhatsApp() {
 export function FloatingCall() {
   return (
     <FloatingCTAButton
-      href={`tel:+${PHONE}`}
+      href={`tel:+${CONTACT_WHATSAPP}`}
       ariaLabel="Call us"
       glowColor="rgba(59, 130, 246, 0.45)"
       buttonClassName="bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] shadow-[0_12px_30px_rgba(29,78,216,0.4)] group-hover:shadow-[0_18px_36px_rgba(29,78,216,0.48)]"
