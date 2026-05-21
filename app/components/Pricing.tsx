@@ -60,19 +60,19 @@ const Pricing = () => {
         scrollToContact(CUSTOM_PACKAGE);
         window.dispatchEvent(new CustomEvent("contact-package", { detail: CUSTOM_PACKAGE }));
     };
-
     const plans: Plan[] = [
         {
             name: 'Basic Package',
             description: 'Ideal for startups and small businesses launching online campaigns.',
             price: '$800',
             features: [
-                'Ad account setup and business manager configuration.',
-                'Audience and competitor research for focused targeting.',
-                'Creation and management of 2 campaigns (traffic or engagement).',
-                'Up to 4 ad creatives (images or short videos).',
-                'Basic ad copywriting with CTA suggestions.',
-                'Monthly performance report with key insights.'
+                'Ad account setup & Business Manager configuration from scratch.',
+                'In-depth audience research and competitor ad analysis.',
+                'Launch and manage 2 targeted campaigns (traffic or engagement).',
+                'Up to 6 professionally designed ad creatives (static or short-form video).',
+                'Persuasive ad copywriting with high-converting CTAs.',
+                'Monthly performance report with actionable insights and next steps.',
+                'Platform: Meta Ads (Facebook & Instagram).'
             ],
             accent: 'var(--accent-sage)',
             bgAccent: 'rgba(16, 185, 129, 0.12)'
@@ -80,15 +80,16 @@ const Pricing = () => {
         {
             name: 'Standard Package',
             description: 'Built for growing businesses aiming for stronger conversions and scale.',
-            price: '$1500',
+            price: '$1,500',
             features: [
                 'Everything in Basic Package.',
-                'Management of 4-6 campaigns (traffic, engagement, conversion).',
-                'Pixel setup and event tracking for optimization.',
-                'Retargeting campaigns to re-engage visitors.',
-                'A/B testing for creatives and ad copy.',
-                'Up to 8 ad creatives each month.',
-                'Fortnightly optimization reports and budget guidance.'
+                'Manage 4–6 multi-objective campaigns (traffic, leads, conversions).',
+                'Meta Pixel + Google Tag Manager setup with full event tracking.',
+                'Retargeting funnels to recapture warm audiences and abandoned visitors.',
+                'A/B testing across creatives, copy, and audience segments.',
+                'Up to 10 ad creatives delivered monthly.',
+                'Bi-weekly optimization reports with budget reallocation guidance.',
+                'Choice of Meta Ads or Google Ads (Search, Display, or YouTube).'
             ],
             accent: 'var(--accent-warm)',
             bgAccent: 'rgba(119, 185, 62, 0.12)',
@@ -96,16 +97,18 @@ const Pricing = () => {
         },
         {
             name: 'Premium Package',
-            description: 'For brands that want full-funnel performance and aggressive growth.',
-            price: '$2000',
+            description: 'For brands that want full-funnel dominance and aggressive growth.',
+            price: '$2,000',
             features: [
                 'Everything in Standard Package.',
-                'Complete funnel strategy: awareness to conversion.',
-                'Dynamic product ads and catalog setup (if applicable).',
-                'Custom audience segmentation and lookalike creation.',
-                'Advanced copywriting and creative direction.',
-                'Weekly reporting with continuous optimization.',
-                'Dedicated marketing consultant for strategy support.'
+                'Full-funnel strategy: awareness → consideration → conversion → retention.',
+                'Dynamic product ads, catalog setup & Shopping campaigns.',
+                'Advanced custom audience segmentation + high-converting lookalike audiences.',
+                'Landing page UX review and conversion rate optimization (CRO) suggestions.',
+                'Premium creative direction: motion graphics, video ads, and branded visuals.',
+                'Weekly reporting with live dashboard access and continuous optimization.',
+                'Dedicated senior marketing strategist for 1-on-1 growth consultation.',
+                'Multi-platform coverage: Meta Ads + Google Ads + SEO alignment.'
             ],
             accent: 'var(--accent-coral)',
             bgAccent: 'rgba(244, 63, 94, 0.12)'
