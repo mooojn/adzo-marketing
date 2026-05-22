@@ -1,12 +1,48 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from 'react';
+import {
+    Check,
+    Megaphone,
+    Users,
+    Image,
+    Palette,
+    PenLine,
+    BarChart3,
+    Headset,
+    SlidersHorizontal,
+    Clapperboard,
+    Sparkles,
+    Target,
+    FlaskConical,
+    Search,
+    Globe,
+    FileText,
+    Video,
+    Layers,
+    Bot,
+    WandSparkles,
+    UserRoundSearch,
+    LayoutDashboard,
+    UserStar,
+    MonitorSmartphone,
+    type LucideIcon
+} from 'lucide-react';
+
+type Feature = {
+    title: string;
+    description: string;
+    icon: LucideIcon;
+};
 
 type Plan = {
     name: string;
     description: string;
     price: string;
-    features: string[];
+    features: Feature[];
+    pills: string[];
+    platformLabel: string;
+    platformValue: string;
     accent: string;
     bgAccent: string;
     popular?: boolean;
@@ -14,8 +50,6 @@ type Plan = {
 
 const Pricing = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const baseCardBorder = "rgba(15, 23, 42, 0.1)";
-    const baseCardShadow = "0 14px 34px -20px rgba(15, 23, 42, 0.32), 0 1px 0 rgba(255,255,255,0.9) inset";
 
     const CUSTOM_PACKAGE = "Custom Package";
 
@@ -60,70 +94,179 @@ const Pricing = () => {
         scrollToContact(CUSTOM_PACKAGE);
         window.dispatchEvent(new CustomEvent("contact-package", { detail: CUSTOM_PACKAGE }));
     };
+
     const plans: Plan[] = [
         {
             name: 'Basic Package',
-            description: 'Ideal for startups and small businesses launching online campaigns.',
+            description: 'Perfect for startups and small businesses launching their first digital campaigns.',
             price: '$800',
             features: [
-                'Ad account setup & Business Manager configuration from scratch.',
-                'In-depth audience research and competitor ad analysis.',
-                'Launch and manage 2 targeted campaigns (traffic or engagement).',
-                'Up to 6 professionally designed ad creatives (static or short-form video).',
-                'Persuasive ad copywriting with high-converting CTAs.',
-                'Monthly performance report with actionable insights and next steps.',
-                'Platform: Meta Ads (Facebook & Instagram).'
+                {
+                    title: 'Meta Ads Management',
+                    description: '2 campaigns (traffic or engagement) · ad account + Business Manager setup from scratch',
+                    icon: Megaphone,
+                },
+                {
+                    title: 'Audience & Competitor Research',
+                    description: 'Targeted interest & behaviour segmentation · competitor ad intelligence audit',
+                    icon: Users,
+                },
+                {
+                    title: '6 Static Ad Creatives',
+                    description: 'Professionally designed image ads - feed, stories & reels formats',
+                    icon: Image,
+                },
+                {
+                    title: 'Graphic Designing',
+                    description: 'Brand-consistent visuals, banners, product ad graphics & social post designs',
+                    icon: Palette,
+                },
+                {
+                    title: 'Ad Copywriting',
+                    description: 'Persuasive bilingual (Urdu/English) copy with high-converting CTAs',
+                    icon: PenLine,
+                },
+                {
+                    title: 'Monthly Performance Report',
+                    description: 'Full insights on spend, reach, clicks & actionable next steps',
+                    icon: BarChart3,
+                },
+                {
+                    title: 'Dedicated Account Manager',
+                    description: 'WhatsApp & email support, 6 days/week · response under 4 hours',
+                    icon: Headset,
+                },
             ],
+            pills: ['Meta Ads', '6 Creatives', 'Graphic Design', 'Monthly Report'],
+            platformLabel: 'Platform',
+            platformValue: 'Meta Ads - Facebook & Instagram',
             accent: 'var(--accent-sage)',
-            bgAccent: 'rgba(16, 185, 129, 0.12)'
+            bgAccent: 'rgba(16, 185, 129, 0.12)',
         },
         {
             name: 'Standard Package',
-            description: 'Built for growing businesses aiming for stronger conversions and scale.',
+            description: 'Built for growing businesses aiming for stronger conversions, retargeting & multi-platform scale.',
             price: '$1,500',
             features: [
-                'Everything in Basic Package.',
-                'Manage 4–6 multi-objective campaigns (traffic, leads, conversions).',
-                'Meta Pixel + Google Tag Manager setup with full event tracking.',
-                'Retargeting funnels to recapture warm audiences and abandoned visitors.',
-                'A/B testing across creatives, copy, and audience segments.',
-                'Up to 10 ad creatives delivered monthly.',
-                'Bi-weekly optimization reports with budget reallocation guidance.',
-                'Choice of Meta Ads or Google Ads (Search, Display, or YouTube).'
+                {
+                    title: 'Everything in Basic',
+                    description: 'Plus all Standard-level upgrades below',
+                    icon: Check,
+                },
+                {
+                    title: '4-6 Multi-Objective Campaigns',
+                    description: 'Traffic, leads, conversions & engagement running simultaneously',
+                    icon: SlidersHorizontal,
+                },
+                {
+                    title: 'Short-Form Video Ads',
+                    description: '4 professional reels/video ads edited monthly - scroll-stopping hooks & storytelling',
+                    icon: Clapperboard,
+                },
+                {
+                    title: 'AI-Generated Ad Images',
+                    description: 'AI visual content for campaigns - product mockups, lifestyle scenes & ad backgrounds',
+                    icon: Sparkles,
+                },
+                {
+                    title: 'Pixel Setup & Retargeting Funnels',
+                    description: 'Meta Pixel + Google Tag Manager · full event tracking · warm audience retargeting',
+                    icon: Target,
+                },
+                {
+                    title: 'A/B Testing',
+                    description: 'Creative, copy & audience split tests · bi-weekly optimisation & budget reallocation',
+                    icon: FlaskConical,
+                },
+                {
+                    title: 'SEO (On-Site & Off-Site)',
+                    description: 'Keyword research, on-page optimisation, backlinks & Google presence setup',
+                    icon: Search,
+                },
+                {
+                    title: 'Google Ads (Search & Display)',
+                    description: 'Targeted search campaigns, display banners & remarketing on Google network',
+                    icon: Globe,
+                },
+                {
+                    title: 'Bi-Weekly Reports',
+                    description: 'Detailed PDF + budget reallocation guidance every two weeks',
+                    icon: FileText,
+                },
             ],
+            pills: ['10 Creatives', '4 Video Ads', 'AI Images', 'Pixel + GTM', 'Retargeting', 'SEO'],
+            platformLabel: 'Platforms',
+            platformValue: 'Meta Ads + Google Ads (Search, Display)',
             accent: 'var(--accent-warm)',
             bgAccent: 'rgba(119, 185, 62, 0.12)',
-            popular: true
+            popular: true,
         },
         {
             name: 'Premium Package',
-            description: 'For brands that want full-funnel dominance and aggressive growth.',
+            description: 'For brands that want full-funnel dominance, AI automation & aggressive multi-platform growth.',
             price: '$2,000',
             features: [
-                'Everything in Standard Package.',
-                'Full-funnel strategy: awareness → consideration → conversion → retention.',
-                'Dynamic product ads, catalog setup & Shopping campaigns.',
-                'Advanced custom audience segmentation + high-converting lookalike audiences.',
-                'Landing page UX review and conversion rate optimization (CRO) suggestions.',
-                'Premium creative direction: motion graphics, video ads, and branded visuals.',
-                'Weekly reporting with live dashboard access and continuous optimization.',
-                'Dedicated senior marketing strategist for 1-on-1 growth consultation.',
-                'Multi-platform coverage: Meta Ads + Google Ads + SEO alignment.'
+                {
+                    title: 'Everything in Standard',
+                    description: 'Plus all Premium-level upgrades below',
+                    icon: Check,
+                },
+                {
+                    title: 'AI Video Ads',
+                    description: '8 AI-generated & edited video ads/month - UGC-style, product demos, testimonials & reels with motion graphics',
+                    icon: Video,
+                },
+                {
+                    title: 'Full-Funnel Strategy',
+                    description: 'Awareness -> consideration -> conversion -> retention · dynamic product ads & shopping catalogue setup',
+                    icon: Layers,
+                },
+                {
+                    title: 'CRM Automation + AI',
+                    description: 'AI chatbots, WhatsApp automation flows (Whatflow), lead nurturing & custom CRM integrations',
+                    icon: Bot,
+                },
+                {
+                    title: 'Premium Creative Direction',
+                    description: 'Motion graphics, branded video production, UGC-style content & influencer brief packs',
+                    icon: WandSparkles,
+                },
+                {
+                    title: 'Advanced Audience Segmentation',
+                    description: 'Custom audiences + lookalike (1%, 3%, 5%) · landing page UX & CRO review',
+                    icon: UserRoundSearch,
+                },
+                {
+                    title: 'Weekly Reports + Live Dashboard',
+                    description: 'Real-time performance dashboard · weekly PDF · continuous optimisation - zero black boxes',
+                    icon: LayoutDashboard,
+                },
+                {
+                    title: 'Dedicated Senior Strategist',
+                    description: '1-on-1 monthly growth consultation · priority support · strategy reviews every 2 weeks',
+                    icon: UserStar,
+                },
+                {
+                    title: 'Web Development Support',
+                    description: 'Landing page builds, Shopify store optimisation & conversion-focused web updates',
+                    icon: MonitorSmartphone,
+                },
             ],
+            pills: ['8 AI Video Ads', 'CRM + AI', 'Full Funnel', 'Motion Graphics', 'Live Dashboard', 'Web Dev'],
+            platformLabel: 'Platforms',
+            platformValue: 'Meta Ads + Google Ads + SEO + CRM + Web',
             accent: 'var(--accent-coral)',
-            bgAccent: 'rgba(244, 63, 94, 0.12)'
-        }
+            bgAccent: 'rgba(244, 63, 94, 0.12)',
+        },
     ];
 
     return (
         <section className="relative py-10 lg:py-14 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
-            {/* Background Ambience */}
             <div
                 className="absolute inset-0 pointer-events-none opacity-40"
                 style={{ background: 'var(--gradient-ambient)' }}
             />
 
-            {/* Floating Geometry for Visual Interest */}
             <div className="absolute top-20 left-[10%] w-64 h-64 animate-float-slow pointer-events-none opacity-20">
                 <div
                     className="w-full h-full rounded-full blur-3xl"
@@ -141,7 +284,6 @@ const Pricing = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-                {/* Section Header */}
                 <div className="max-w-3xl mb-10 lg:mb-14">
                     <div className="flex items-center gap-4 mb-6">
                         <div
@@ -181,7 +323,6 @@ const Pricing = () => {
                     </p>
                 </div>
 
-                {/* Pricing Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-7 items-stretch animate-scale-in">
                     {plans.map((plan, index) => (
                         <div
@@ -219,7 +360,6 @@ const Pricing = () => {
                                 style={{ background: `linear-gradient(90deg, ${plan.accent} 0%, transparent 100%)` }}
                             />
 
-                            {/* Plan Name */}
                             <div className="mb-4 mt-2 flex items-center justify-between gap-3">
                                 <h3
                                     className="text-xl lg:text-2xl font-bold"
@@ -242,7 +382,6 @@ const Pricing = () => {
                                 </span>
                             </div>
 
-                            {/* Description */}
                             <p
                                 className="text-sm mb-6 min-h-12"
                                 style={{
@@ -253,7 +392,6 @@ const Pricing = () => {
                                 {plan.description}
                             </p>
 
-                            {/* Price */}
                             <div className="mb-6 flex items-baseline gap-1.5 flex-wrap">
                                 <span
                                     className="text-3xl lg:text-4xl font-bold"
@@ -267,10 +405,8 @@ const Pricing = () => {
                                 <span className="text-xs sm:text-sm text-[var(--text-muted)] font-mono">/month</span>
                             </div>
 
-                            {/* Divider */}
                             <div className="h-px w-full mb-6" style={{ background: 'linear-gradient(90deg, transparent, var(--border-card), transparent)' }} />
 
-                            {/* Features */}
                             <ul className="space-y-3.5 mb-8 grow">
                                 {plan.features.map((feature, fIndex) => (
                                     <li key={fIndex} className="flex items-start gap-3 text-sm">
@@ -278,22 +414,52 @@ const Pricing = () => {
                                             className="mt-1 w-4 h-4 rounded-full flex items-center justify-center shrink-0"
                                             style={{ background: plan.bgAccent }}
                                         >
-                                            <svg
-                                                className="w-2.5 h-2.5"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                style={{ color: plan.accent }}
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                            </svg>
+                                            <feature.icon className="w-2.5 h-2.5" style={{ color: plan.accent }} />
                                         </div>
-                                        <span style={{ color: 'var(--text-muted)' }}>{feature}</span>
+                                        <div>
+                                            <p className="font-semibold" style={{ color: 'var(--text-primary)' }}>{feature.title}</p>
+                                            <p style={{ color: 'var(--text-muted)' }}>{feature.description}</p>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
 
-                            {/* CTA Button */}
+                            <div className="mb-6 space-y-4">
+                                <div className="flex flex-wrap gap-2">
+                                    {plan.pills.map((pill, pillIndex) => (
+                                        <span
+                                            key={`${pill}-${pillIndex}`}
+                                            className="px-3 py-1 rounded-full text-xs"
+                                            style={{
+                                                fontFamily: 'var(--font-display)',
+                                                color: plan.accent,
+                                                background: plan.bgAccent
+                                            }}
+                                        >
+                                            {pill}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div
+                                    className="rounded-md px-3.5 py-3"
+                                    style={{
+                                        background: `color-mix(in srgb, ${plan.accent} 10%, var(--bg-card-default))`,
+                                        border: `1px solid color-mix(in srgb, ${plan.accent} 25%, transparent)`
+                                    }}
+                                >
+                                    <p
+                                        className="text-xs uppercase tracking-wider mb-1"
+                                        style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            color: plan.accent
+                                        }}
+                                    >
+                                        {plan.platformLabel}
+                                    </p>
+                                    <p style={{ color: 'var(--text-primary)' }}>{plan.platformValue}</p>
+                                </div>
+                            </div>
+
                             <div className="flex flex-col gap-3">
                                 <button
                                     type="button"
@@ -337,3 +503,5 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
+
