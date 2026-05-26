@@ -213,7 +213,7 @@ export default function ContactForm() {
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
-                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] focus:border-transparent focus:ring-2"
+                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(119,185,62,0.14)] hover:ring-1 hover:ring-[var(--accent-warm)] focus:border-transparent focus:ring-2"
                                         style={{
                                             background: 'var(--bg-input)',
                                             color: 'var(--text-primary)',
@@ -229,7 +229,7 @@ export default function ContactForm() {
                                         value={phoneNumber}
                                         onChange={(e) => setPhoneNumber(e.target.value)}
                                         required
-                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] focus:border-transparent focus:ring-2"
+                                        className="w-full px-4 py-4 rounded-xl text-base outline-none transition-all duration-300 placeholder:text-[var(--text-muted)] border border-[var(--border-subtle)] hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(119,185,62,0.14)] hover:ring-1 hover:ring-[var(--accent-warm)] focus:border-transparent focus:ring-2"
                                         style={{
                                             background: 'var(--bg-input)',
                                             color: 'var(--text-primary)',
@@ -249,7 +249,7 @@ export default function ContactForm() {
                                             type="button"
                                             data-package={pkg}
                                             onClick={() => setSelectedPackage(pkg)}
-                                            className="px-4 py-3 rounded-lg text-sm text-center transition-all duration-300 border font-medium"
+                                            className="px-4 py-3 rounded-lg text-sm text-center transition-all duration-300 border font-medium hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(119,185,62,0.18)] hover:ring-1 hover:ring-[var(--accent-warm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-warm)] active:translate-y-0"
                                             style={{
                                                 background: selectedPackage === pkg ? 'var(--accent-warm)' : 'var(--bg-input)',
                                                 borderColor: selectedPackage === pkg ? 'var(--accent-warm)' : 'var(--border-subtle)',
@@ -272,7 +272,7 @@ export default function ContactForm() {
                                             type="button"
                                             data-budget={range}
                                             onClick={() => setBudget(range)}
-                                            className="px-2 py-2 rounded-full text-sm font-medium transition-all duration-300 border"
+                                            className="px-2 py-2 rounded-full text-sm font-medium transition-all duration-300 border hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(119,185,62,0.18)] hover:ring-1 hover:ring-[var(--accent-warm)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-warm)] active:translate-y-0"
                                             style={{
                                                 background: budget === range ? 'rgba(119, 185, 62, 0.1)' : 'var(--bg-input)',
                                                 borderColor: budget === range ? 'var(--accent-warm)' : 'var(--border-subtle)',
